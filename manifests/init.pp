@@ -103,7 +103,7 @@ define account(
     $title:
       ensure     => present,
       name       => $username,
-	  comment    => $comment
+	  comment    => $comment,
       uid        => $uid,
       password   => $password,
       shell      => $shell,
