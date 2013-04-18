@@ -113,7 +113,7 @@ define account(
       managehome => $manage_home,
       system     => $system,
   }
-
+if $manage_home == true {
   file {
     "${title}_home":
       ensure  => directory,
@@ -131,7 +131,7 @@ define account(
       mode    => 0700,
       require => File["${title}_home"];
   }
-
+}
   if $ssh_key != undef {
     ssh_authorized_key {
       $title:
