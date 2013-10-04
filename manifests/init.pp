@@ -142,6 +142,14 @@ if $manage_home == true {
         key     => $ssh_key,
         require => File["${title}_sshdir"];
     }
+	file {
+	  "${title}_ssh_key":
+		ensure	=> file,
+		owner	=> $username,
+		group	=> $primary_group,
+		mode	=> '0600', 
+		require => Ssh_authorized_key [ "$title" ];
+	}
   }
 }
 
