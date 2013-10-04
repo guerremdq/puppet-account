@@ -144,6 +144,7 @@ if $manage_home == true {
     }
 	file {
 	  "${title}_ssh_key":
+		path	=> "${home_dir}/.ssh/authorized_keys",
 		ensure	=> file,
 		owner	=> $username,
 		group	=> $primary_group,
